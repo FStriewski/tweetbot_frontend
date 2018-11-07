@@ -3,7 +3,7 @@ import * as Twit from 'twit';
 import BottomBar from './components/BottomBar';
 import Header from './components/Header';
 import MainStage from './components/MainStage';
-import SideBar from './components/SideBar';
+import SideBar from './components/sidebar/SideBar';
 import './App.css';
 
 
