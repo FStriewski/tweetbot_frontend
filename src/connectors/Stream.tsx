@@ -20,33 +20,38 @@ export default class Stream extends React.Component<IProps, {}> {
     super(props);
   }
 
+  resolve = () => console.log("resolve")
+
   sleep = () => {
     return new Promise((resolve, reject) => {
       setTimeout(() => {
-        resolve();
-      }, 10000);
+        this.resolve();
+      }, 100);
     });
   };
 
   stream = async () => {
     while (this.state.streaming) {
+      console.log(this.state.streaming)
       console.log('--ping Twitter:');
-      const tweets = await twit.get('search/tweets', { q: '@elonmusk' });
-      console.log(tweets.data);
+      // const tweets = await twit.get('search/tweets', { q: '@elonmusk' });
+      // console.log(tweets.data);
       await this.sleep();
     }
-  };
+  }
 
   startStreaming = () => {
-     this.setState({ streaming: !this.state.streaming });
-    console.log(this.state.streaming)
+    this.setState({
+      streaming: !this.state.streaming
+    });
+    this.stream()
   };
 
   render() {
-    return (
-      <React.Fragment>
-        {this.props.children({ streaming: this.startStreaming })}
-      </React.Fragment>
-    );
+    return <React.Fragment>
+      {this.props.children({
+        streaming: this.startStreaming
+      })}
+    </React.Fragment>;
   }
 }
