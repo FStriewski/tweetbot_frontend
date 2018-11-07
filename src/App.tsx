@@ -2,7 +2,7 @@ import * as React from 'react';
 import * as Twit from 'twit';
 import BottomBar from './components/BottomBar';
 import Header from './components/Header';
-import MainStage from './components/MainStage';
+import MainStage from './components/mainstage/MainStage';
 import SideBar from './components/sidebar/SideBar';
 import './App.css';
 

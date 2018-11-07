@@ -6,7 +6,7 @@ export const SideBar = styled.div`
   float: left;
 
   overflow: hidden;
-  border: 1px solid black;
+  border: 1px dotted black;
   padding: 20px;
 
   input {

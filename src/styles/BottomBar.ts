@@ -7,5 +7,5 @@ export const BottomBar = styled.div`
 
   width: 100%;
   height: 100px;
-  border: 1px dashed black;
+  border: 1px dotted black;
 `;

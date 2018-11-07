@@ -5,4 +5,13 @@ export const MainStage = styled.div`
   overflow: hidden;
   border: 1px dotted black;
   min-height: 450px;
+
+  div {
+    margin: 50px;
+    height: 300px;
+    padding: 30px;
+    border: 2px solid red;
+
+
+  }
 `;
