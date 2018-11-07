@@ -3,14 +3,17 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@types/styled-components": "^4.0.3",
     "@types/twit": "^2.2.20",
     "react": "^16.6.1",
     "react-dom": "^16.6.1",
-    "react-scripts-ts": "3.1.0"
+    "react-scripts-ts": "3.1.0",
+    "styled-components": "^4.0.3"
   },
   "scripts": {
     "start": "react-scripts-ts start",
-    "nodemon": "nodemon",
+    "start2": "ts-node src/server.ts",
+    "dev": "./node_modules/nodemon/bin/nodemon.js",
     "compile": "tsc",
     "build": "react-scripts-ts build",
     "test": "react-scripts-ts test --env=jsdom",
