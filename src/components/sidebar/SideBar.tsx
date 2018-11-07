@@ -3,9 +3,9 @@ import { SideBar as StyledSideBar } from '../../styles/SideBar';
 import Input from './Input';
 import Button from './Button';
 
-const SideBar = () => (
+const SideBar = ({ toggleStream }) => (
   <StyledSideBar>
-    <Button/>
+    <Button onClick={toggleStream} />
     <Input />
   </StyledSideBar>
 );
