@@ -1,6 +1,10 @@
 import * as React from 'react';
+import * as Twit from 'twit';
+import BottomBar from './components/BottomBar';
+import Header from './components/Header';
+import MainStage from './components/MainStage';
+import SideBar from './components/SideBar';
 import './App.css';
-import * as Twit from 'twit'
 
 
 class App extends React.Component {
@@ -31,9 +35,13 @@ class App extends React.Component {
     }
 
     return (
-      <div className="App">
-        Test
+      <div>
+        <Header />
+        <SideBar />
+        <MainStage />
+        <BottomBar />
       </div>
+
     );
   }
 }
