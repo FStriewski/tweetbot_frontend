@@ -22,31 +22,10 @@ export default class Stream extends React.Component<IProps, {}> {
     super(props);
   }
 
-  // resolve = () => console.log("resolve")
-
-  // sleep = () => {
-  //   return new Promise((resolve, reject) => {
-  //     setTimeout(() => {
-  //       this.resolve();
-  //     }, 100);
-  //   });
-  // };
-
-  // stream = async () => {
-  //   while (this.state.streaming) {
-  //     console.log(this.state.streaming)
-  //     console.log('--ping Twitter:');
-  //     // const tweets = await twit.get('search/tweets', { q: '@elonmusk' });
-  //     // console.log(tweets.data);
-  //     await this.sleep();
-  //   }
-  // }
-
   startStreaming = () => {
-    console.log("klick")
-    // this.setState({
-    //   streaming: !this.state.streaming
-    // });
+    this.setState({
+      streaming: !this.state.streaming
+    });
   };
 
 
@@ -58,19 +37,20 @@ export default class Stream extends React.Component<IProps, {}> {
     })
   }
 
-  toggleStreaming = async () => {
-    while (false) {
+  toggleStreaming = async (bool) => {
+    while (bool) {
       console.log('--ping Twitter:')
-      // const tweets = await twit.get('search/tweets', { q: '@realDonaldTrump' })
+      // const tweets = await twit.get('search/tweets', { q: '@elonmusk' })
       // console.log(tweets.data)
       await this.sleep()
     }
     return
   }
 
-  test = () => console.log("test")
-
   render() {
+     this.toggleStreaming(this.state.streaming);
+    // console.log(this.state.streaming)
+
     return <React.Fragment>
         {this.props.children({
         toggleStreaming: this.startStreaming
