@@ -9,18 +9,14 @@ import './App.css';
 
 class App extends React.Component {
   public render() {
-    return (
-      <Stream>
-        {({ streaming }) => (
-          <React.Fragment>
-            <Header />
-            <SideBar toggleStream={streaming}/>
-            <MainStage />
-            <BottomBar />
-          </React.Fragment>
-        )}
-      </Stream>
-    );
+    return <Stream>
+      {({ toggleStreaming }) => <React.Fragment>
+        <Header />
+        <SideBar toggleStreaming={toggleStreaming} />
+        <MainStage />
+        <BottomBar />
+      </React.Fragment>}
+    </Stream>;
   }
 }
 
