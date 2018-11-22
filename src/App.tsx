@@ -10,21 +10,16 @@ import './App.css';
 
 class App extends React.Component {
   public render() {
-    return (
-      <StyledApp>
+    return <StyledApp>
         <Stream>
-          {({ streaming }) => (
-            <React.Fragment>
+          {({ tweets }) => <React.Fragment>
               <Header />
-              <SideBar toggleStream={streaming} />
+              <SideBar toggleStream={tweets} />
               <MainStage />
               <BottomBar />
-            </React.Fragment>
-          )}
+            </React.Fragment>}
         </Stream>
-      </StyledApp>
-
-    );
+      </StyledApp>;
   }
 }
 
