@@ -1,5 +1,8 @@
 import * as React from 'react';
 import * as Twit from 'twit';
+import * as request from 'superagent';
+
+const baseUrl = 'http://localhost:4001'
 
 const twit = new Twit({
   access_token: '863335407362158596-PfixfMsxaGCmeJjnlQvBA755Qe6Y7R4',
@@ -9,35 +12,31 @@ const twit = new Twit({
 });
 
 interface IRenderProps {
-  tweets: () => void,
+  getTweets: () => void,
+  tweets: string,
 };
 
 interface IProps { children: (props: IRenderProps) => React.ReactNode };
 
 
 export default class Stream extends React.Component<IProps, {}> {
-  readonly state = { streaming: false };
+  readonly state = { output: '' };
 
   constructor(props) {
     super(props);
   }
 
   getTweets = async () => {
-    const tweets = await twit.get(
-      'search/tweets',
-      { q: '@elonmusk' }
-    );
-    return tweets
-
-    //  this.setState({
-    //    streaming: !this.state.streaming
-    //  });
+   const tweets = await request(`${baseUrl}/tweets`)
+    this.setState({output: tweets})
+    console.log(this.state.output)
   };
 
   render() {
     return <React.Fragment>
       {this.props.children({
-        tweets: this.getTweets
+        getTweets: this.getTweets,
+        tweets: this.state.output,
       })}
     </React.Fragment>;
   }

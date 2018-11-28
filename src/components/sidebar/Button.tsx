@@ -5,8 +5,6 @@ export interface IButtonType {
   onClick: () => void;
 }
 
-// const click = () => console.log('Click');
-
 const Button = ({onClick}) => (
   <StyledButton onClick={onClick}>Run!</StyledButton>
 );
