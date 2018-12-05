@@ -11,10 +11,10 @@ class App extends React.Component {
   public render() {
     return <StyledApp>
       <Stream>
-        {({ tweets, getTweets }) => <React.Fragment>
+        {({ tweets, byKeyword }) => <React.Fragment>
           <Header />
-          <SideBar toggleStream={getTweets} />
-          <MainStage tweets={tweets}/>
+          <SideBar byKeyword={byKeyword} />
+          <MainStage tweets={tweets} />
           <BottomBar />
         </React.Fragment>}
       </Stream>

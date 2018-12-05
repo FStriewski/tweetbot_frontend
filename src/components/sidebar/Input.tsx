@@ -2,24 +2,20 @@ import * as React from 'react';
 import { useState } from 'react';
 import { Button as StyledButton } from '../../styles/Button';
 
-const Input = ({ onClick }) => {
+const Input = ({ byKeyword }) => {
   const [input, setInput] = useState('');
 
   const handleInput = event => setInput(event.target.value);
-  console.log(input)
 
-  const handleSubmit = (event) =>{
+  const handleSubmit = event => {
     event.preventDefault();
-    onClick(input);
-  }
+    byKeyword(input);
+  };
 
-  return (
-    <form onSubmit={handleSubmit}>
-      <StyledButton >Run!</StyledButton>
-      <label htmlFor="accountInput">Account:</label>
-      <input type="text" name="accountInput" value={input} onChange={handleInput} />
-    </form>
-  );
+  return <form onSubmit={handleSubmit}>
+    <StyledButton>Run!</StyledButton>
+    <input placeholder="keyword" type="text" name="kewordInput" autoComplete="off" value={input} onChange={handleInput} />
+  </form>;
 };
 
 export default Input;

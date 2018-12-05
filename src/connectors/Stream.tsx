@@ -4,7 +4,7 @@ import * as request from 'superagent';
 const baseUrl = 'http://localhost:4001'
 
 interface IRenderProps {
-  getTweets: (param) => void,
+  byKeyword: (param) => void,
   tweets: string,
 };
 
@@ -18,17 +18,16 @@ export default class Stream extends React.Component<IProps, {}> {
     super(props);
   }
 
-  getTweets = async (param) => {
-    const tweets = await request.get(`${baseUrl}/tweets`).query({ account: "elonmusk"})
-    this.setState({output: tweets})
-    console.log(this.state.output)
+  byKeyword = async (param) => {
+    const tweets = await request.get(`${baseUrl}/tweets`).query({ keyword: param })
+    this.setState({ output: tweets })
   };
 
   render() {
     return <React.Fragment>
       {this.props.children({
-        getTweets: this.getTweets,
-        tweets: this.state.output,
+        byKeyword: this.byKeyword,
+        tweets: this.state.output
       })}
     </React.Fragment>;
   }

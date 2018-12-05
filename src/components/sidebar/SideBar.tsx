@@ -2,9 +2,9 @@ import * as React from 'react';
 import { SideBar as StyledSideBar } from '../../styles/SideBar';
 import Input from './Input';
 
-const SideBar = ({ toggleStream }) => (
+const SideBar = ({ byKeyword }) => (
   <StyledSideBar>
-    <Input onClick={toggleStream} />
+    <Input byKeyword={byKeyword} />
   </StyledSideBar>
 );
 
