@@ -4,7 +4,6 @@ import Input from './Input';
 
 const SideBar = ({ toggleStream }) => (
   <StyledSideBar>
-    {/* <Button /> */}
     <Input onClick={toggleStream} />
   </StyledSideBar>
 );
