@@ -12,7 +12,7 @@ const twit = new Twit({
 });
 
 interface IRenderProps {
-  getTweets: () => void,
+  getTweets: (param) => void,
   tweets: string,
 };
 
@@ -26,7 +26,7 @@ export default class Stream extends React.Component<IProps, {}> {
     super(props);
   }
 
-  getTweets = async () => {
+  getTweets = async (param) => {
    const tweets = await request(`${baseUrl}/tweets`)
     this.setState({output: tweets})
     console.log(this.state.output)
