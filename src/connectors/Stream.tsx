@@ -1,15 +1,7 @@
 import * as React from 'react';
-import * as Twit from 'twit';
 import * as request from 'superagent';
 
 const baseUrl = 'http://localhost:4001'
-
-const twit = new Twit({
-  access_token: '863335407362158596-PfixfMsxaGCmeJjnlQvBA755Qe6Y7R4',
-  access_token_secret: 'RHk4nXvZCQJKODFQ148fi36KQ5pxrTuA4WO7rZt0ASOvQ',
-  consumer_key: 'ViQVPujGb7SUGjGJvuTHsqQjm',
-  consumer_secret: 'c0PUaTcxQseew5DPOGlqZKNZmwMk1NcEo1qWWxeh8NHTDA27nX'
-});
 
 interface IRenderProps {
   getTweets: (param) => void,
@@ -27,7 +19,7 @@ export default class Stream extends React.Component<IProps, {}> {
   }
 
   getTweets = async (param) => {
-   const tweets = await request(`${baseUrl}/tweets`)
+    const tweets = await request.get(`${baseUrl}/tweets`).query({ account: "elonmusk"})
     this.setState({output: tweets})
     console.log(this.state.output)
   };
