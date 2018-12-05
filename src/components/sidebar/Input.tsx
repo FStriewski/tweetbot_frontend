@@ -9,7 +9,9 @@ const Input = ({ byKeyword }) => {
 
   const handleSubmit = event => {
     event.preventDefault();
-    byKeyword(input);
+    if (input) {
+      byKeyword(input);
+    }
   };
 
   return <form onSubmit={handleSubmit}>
