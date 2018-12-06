@@ -45,7 +45,6 @@ export default class Stream extends React.Component<IProps, IState> {
       .query({ keyword: param })
       .then(response => this.parseResponse(response))
 
-
     this.setState({ tweets: [...messages] })
   };
 

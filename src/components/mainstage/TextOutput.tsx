@@ -2,9 +2,16 @@ import * as React from 'react';
 
 // const TextOutput = (tweets) =>  <div>{JSON.stringify(tweets)}</div>
 const TextOutput = (tweets) => {
-  if (tweets) { return <div>{ JSON.stringify(tweets)  }</div> }
+  if (tweets) {
+    // tweets.map(tweet => tweet.text)
+    console.log(tweets)
+    return <div>{JSON.stringify(tweets)}</div>
+  }
 
-  return <div>empty</div>
+
+// return <div>{ JSON.stringify(tweets)  }</div> }
+
+return <div>empty</div>
 
 }
 
