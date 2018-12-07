@@ -5,22 +5,20 @@ import Header from './components/Header';
 import Stream from './connectors/Stream';
 import MainStage from './components/mainstage/MainStage';
 import SideBar from './components/sidebar/SideBar';
-import './App.css';
+import { App as StyledApp } from './styles/App';
 
 class App extends React.Component {
   public render() {
-    return (
+    return <StyledApp>
       <Stream>
-        {({ streaming }) => (
-          <React.Fragment>
-            <Header />
-            <SideBar toggleStream={streaming}/>
-            <MainStage />
-            <BottomBar />
-          </React.Fragment>
-        )}
+        {({ tweets, byKeyword }) => <React.Fragment>
+          <Header />
+          <SideBar byKeyword={byKeyword} />
+          <MainStage tweets={tweets} />
+          <BottomBar />
+        </React.Fragment>}
       </Stream>
-    );
+    </StyledApp>;
   }
 }
 

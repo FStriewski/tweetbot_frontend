@@ -1,56 +1,60 @@
 import * as React from 'react';
-import * as Twit from 'twit';
+import * as request from 'superagent';
 
-const twit = new Twit({
-  access_token: '863335407362158596-PfixfMsxaGCmeJjnlQvBA755Qe6Y7R4',
-  access_token_secret: 'RHk4nXvZCQJKODFQ148fi36KQ5pxrTuA4WO7rZt0ASOvQ',
-  consumer_key: 'ViQVPujGb7SUGjGJvuTHsqQjm',
-  consumer_secret: 'c0PUaTcxQseew5DPOGlqZKNZmwMk1NcEo1qWWxeh8NHTDA27nX'
-});
+const baseUrl = 'http://localhost:4001'
 
-interface IRenderProps { streaming: () => void };
+interface IRenderProps {
+  byKeyword: (keyword, count) => void,
+  tweets: any,
+};
+
+interface ITweet {
+  created_at: string; // date time
+  coordinates: string; // ?
+  text: string; // tweet body
+  retweetCount: number;
+  id: number; // userid
+  name: string; // user name
+  screen_name: string; // profile name
+  activeSince: string; // user created at
+  location: string; // country
+  followersCount: number;
+}
+
+interface IState { tweets: ITweet[] }
 
 interface IProps { children: (props: IRenderProps) => React.ReactNode };
 
+const initialState = {
+  tweets: []
+}
 
-export default class Stream extends React.Component<IProps, {}> {
-  readonly state = { streaming: false };
+export default class Stream extends React.Component<IProps, IState> {
+  readonly state = initialState;
 
   constructor(props) {
     super(props);
   }
 
-  resolve = () => console.log("resolve")
+  parseResponse = response => response.body
 
-  sleep = () => {
-    return new Promise((resolve, reject) => {
-      setTimeout(() => {
-        this.resolve();
-      }, 100);
-    });
-  };
+  byKeyword = async (keyword, count) => {
 
-  stream = async () => {
-    while (this.state.streaming) {
-      console.log(this.state.streaming)
-      console.log('--ping Twitter:');
-      // const tweets = await twit.get('search/tweets', { q: '@elonmusk' });
-      // console.log(tweets.data);
-      await this.sleep();
-    }
-  }
+    const messages = await request
+      .get(`${baseUrl}/tweets`)
+      .query({ keyword, count })
+      .then(response => this.parseResponse(response))
 
-  startStreaming = () => {
-    this.setState({
-      streaming: !this.state.streaming
-    });
-    this.stream()
+    this.setState({ ...this.state, tweets: [...messages] })
+
+    // console.log("State: " + JSON.stringify(this.state))
   };
 
   render() {
     return <React.Fragment>
       {this.props.children({
-        streaming: this.startStreaming
+        byKeyword: this.byKeyword,
+        tweets: this.state.tweets
       })}
     </React.Fragment>;
   }
