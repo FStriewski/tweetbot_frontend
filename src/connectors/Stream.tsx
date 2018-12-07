@@ -4,7 +4,7 @@ import * as request from 'superagent';
 const baseUrl = 'http://localhost:4001'
 
 interface IRenderProps {
-  byKeyword: (param) => void,
+  byKeyword: (keyword, count) => void,
   tweets: any,
 };
 
@@ -38,14 +38,16 @@ export default class Stream extends React.Component<IProps, IState> {
 
   parseResponse = response => response.body
 
-  byKeyword = async (param) => {
+  byKeyword = async (keyword, count) => {
 
     const messages = await request
       .get(`${baseUrl}/tweets`)
-      .query({ keyword: param })
+      .query({ keyword, count })
       .then(response => this.parseResponse(response))
 
-    this.setState({ tweets: [...messages] })
+    this.setState({ ...this.state, tweets: [...messages] })
+
+    // console.log("State: " + JSON.stringify(this.state))
   };
 
   render() {

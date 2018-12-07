@@ -4,7 +4,7 @@ import TextOutput from './TextOutput';
 
 const MainStage = (tweets: any) => (
   <StyledMainStage>
-    <TextOutput tweets={tweets}/>
+    {tweets.tweets.map((tweet)=> <TextOutput key={tweet.id} element={tweet}/>)}
   </StyledMainStage>
 );
 

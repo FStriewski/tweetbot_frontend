@@ -3,21 +3,40 @@ import { useState } from 'react';
 import { Button as StyledButton } from '../../styles/Button';
 
 const Input = ({ byKeyword }) => {
-  const [input, setInput] = useState('');
+  const [keyword, setInput] = useState('');
+  const [count, setCount] = useState(10);
 
-  const handleInput = event => setInput(event.target.value);
+  const handleKeywordInput = event => setInput(event.target.value);
+  const handleCountInput = event => setCount(Number(event.target.value));
 
   const handleSubmit = event => {
     event.preventDefault();
-    if (input) {
-      byKeyword(input);
+    if (keyword) {
+      byKeyword(keyword, count);
     }
   };
 
-  return <form onSubmit={handleSubmit}>
-    <StyledButton>Run!</StyledButton>
-    <input placeholder="keyword" type="text" name="kewordInput" autoComplete="off" value={input} onChange={handleInput} />
-  </form>;
+  return (
+    <form onSubmit={handleSubmit}>
+      <StyledButton>Run!</StyledButton>
+      <input
+        placeholder="keyword"
+        type="text"
+        name="keywordInput"
+        autoComplete="off"
+        value={keyword}
+        onChange={handleKeywordInput}
+      />
+      <input
+        placeholder="keyword"
+        type="text"
+        name="countInput"
+        autoComplete="off"
+        value={count}
+        onChange={handleCountInput}
+      />
+    </form>
+  );
 };
 
 export default Input;
