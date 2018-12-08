@@ -6,6 +6,7 @@ import Stream from './connectors/Stream';
 import MainStage from './components/mainstage/MainStage';
 import SideBar from './components/sidebar/SideBar';
 import { App as StyledApp } from './styles/App';
+import { Stage as StyledStage } from './styles/Stage';
 
 class App extends React.Component {
   public render() {
@@ -13,8 +14,10 @@ class App extends React.Component {
       <Stream>
         {({ tweets, byKeyword }) => <React.Fragment>
           <Header />
-          <SideBar byKeyword={byKeyword} />
-          <MainStage tweets={tweets} />
+          <StyledStage>
+            <SideBar byKeyword={byKeyword} />
+            <MainStage tweets={tweets} />
+          </StyledStage>
           <BottomBar />
         </React.Fragment>}
       </Stream>

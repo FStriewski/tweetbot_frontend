@@ -1,7 +1,7 @@
 
 export const HEIGHT = {
   BOTTOM: '20px',
-  MAIN: 'calc(100vh - 60px - 50px)',
+  MAIN: 'calc(100vh - 60px - 20px)',
   TOP: '40px',
 }
 
