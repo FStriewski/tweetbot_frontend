@@ -12,6 +12,10 @@ export const SideBar = styled.div`
   border-top: none;
   padding: 15px;
 
+  div {
+    margin-bottom: 20px;
+  }
+
   form {
     display: table;
     margin: 0 auto;

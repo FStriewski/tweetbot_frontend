@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { useState } from 'react';
 import { Button as StyledButton } from '../../styles/Button';
+import DropDown from '../DropDown';
 
 const Input = ({ byKeyword }) => {
   const [keyword, setInput] = useState('');
@@ -41,17 +42,12 @@ const Input = ({ byKeyword }) => {
         />
       </div>
       <div>
-        <select>
-          <option value="de">DE</option>
-          <option value="en">EN</option>
-        </select>
+        <label htmlFor="">Language</label>
+        <DropDown items={['en', 'de']} />
       </div>
       <div>
-        <select>
-          <option value="mixed">mixed</option>
-          <option value="popular">popular</option>
-          <option value="recent">recent</option>
-        </select>
+        <label htmlFor="">Content</label>
+        <DropDown items={['mixed', 'recent', 'popular']} />
       </div>
     </form>
   );
