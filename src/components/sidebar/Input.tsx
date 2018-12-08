@@ -19,22 +19,40 @@ const Input = ({ byKeyword }) => {
   return (
     <form onSubmit={handleSubmit}>
       <StyledButton>Run!</StyledButton>
-      <input
-        placeholder="keyword"
-        type="text"
-        name="keywordInput"
-        autoComplete="off"
-        value={keyword}
-        onChange={handleKeywordInput}
-      />
-      <input
-        placeholder="keyword"
-        type="text"
-        name="countInput"
-        autoComplete="off"
-        value={count}
-        onChange={handleCountInput}
-      />
+      <div>
+        <label htmlFor="keyword">Keyword</label>
+        <input
+          placeholder="keyword"
+          type="text"
+          name="keyword"
+          autoComplete="off"
+          value={keyword}
+          onChange={handleKeywordInput}
+        />
+      </div>
+      <div>
+        <label htmlFor="count">Count (1 - 100)</label>
+        <input
+          type="text"
+          name="count"
+          autoComplete="off"
+          value={count}
+          onChange={handleCountInput}
+        />
+      </div>
+      <div>
+        <select>
+          <option value="de">DE</option>
+          <option value="en">EN</option>
+        </select>
+      </div>
+      <div>
+        <select>
+          <option value="mixed">mixed</option>
+          <option value="popular">popular</option>
+          <option value="recent">recent</option>
+        </select>
+      </div>
     </form>
   );
 };

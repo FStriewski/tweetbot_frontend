@@ -5,16 +5,28 @@ export const SideBar = styled.div`
   position: relative;
   overflow: auto;
 
-  width: 260px;
+  width: 220px;
   overflow: hidden;
   border: 1px solid ${SCHEMA_1.COLOR_2};
   border-bottom: none;
   border-top: none;
   padding: 15px;
 
+  form {
+    display: table;
+    margin: 0 auto;
+  }
+
+  label {
+    font-size: 12px;
+    display: block;
+  }
+
   input {
-    height: 30px;
+    text-align: center;
+    display: block;
+    height: 25px;
     width: 150px;
-    margin: 10px;
+    margin-bottom: 20px;
   }
 `;
