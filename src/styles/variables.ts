@@ -1,4 +1,10 @@
 
+export const HEIGHT = {
+  BOTTOM: '20px',
+  MAIN: 'calc(100vh - 60px - 50px)',
+  TOP: '40px',
+}
+
 export const COMMON = {
   COLOR_1: "#FFFFFF",
   COLOR_2: "#000000",
@@ -9,13 +15,6 @@ export const SCHEMA_1 = {
   COLOR_2: "#A9A9A9", // Grey 
   COLOR_3: "#FF3B3F", // Red
   COLOR_4: "#EFEFEF",// Neutral
-
-}
-export const SCHEMA_2 = {
-  COLOR_1: "#0F1626", // Black 
-  COLOR_2: "#AB987A", // Gold 
-  COLOR_3: "#FF533D", // Red
-  COLOR_4: "#F5F5F5", // Eggshell
 
 }
 export const SCHEMA_3 = {

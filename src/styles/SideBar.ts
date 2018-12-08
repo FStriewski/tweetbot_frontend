@@ -1,20 +1,23 @@
 import styled from './styled-components';
-import { COMMON, SCHEMA_1, SCHEMA_2, SCHEMA_3 } from './variables';
+import { COMMON, SCHEMA_1, SCHEMA_3, HEIGHT } from './variables';
+
+
 
 export const SideBar = styled.div`
-  min-height: 450px;
-  width: 250px;
-  float: left;
+         position: relative;
+         overflow: auto;
+         height: ${HEIGHT.MAIN};
 
-  overflow: hidden;
-  border: 1px solid ${SCHEMA_1.COLOR_2};
-  border-bottom: none;
-  border-top: none;
-  padding: 15px;
+         width: 250px;
 
-  input {
-    height: 30px;
-    width: 200px;
-    margin: 10px;
-  }
-`;
+         overflow: hidden;
+         border: 1px solid ${SCHEMA_1.COLOR_2};
+         border-bottom: none;
+         border-top: none;
+         padding: 15px;
+
+         input {
+           height: 30px;
+           width: 200px;
+           margin: 10px;
+         }`;
