@@ -15,6 +15,7 @@ export const DropdownListContainer = styled.div`
 `;
 
 export const List = styled.ul`
+  cursor: pointer;
   list-style-type: none;
   width: 100%;
   padding: 10px 5px;
@@ -22,6 +23,7 @@ export const List = styled.ul`
 `;
 
 export const ListLabel = styled.div`
+  cursor: pointer;
   text-align: center;
   display: block;
   height: 30px;
@@ -33,7 +35,7 @@ export const ListLabel = styled.div`
   border: 1px solid ${SCHEMA_1.COLOR_2};
 `;
 
-export const Item = styled.li`
+export const Item = styled.div`
   padding: 10px 15px;
   cursor: pointer;
   width: 100%;

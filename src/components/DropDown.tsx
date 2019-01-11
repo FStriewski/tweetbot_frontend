@@ -11,7 +11,9 @@ interface IState {
 }
 
 interface IProps {
+  currentSelection: string;
   items: string[];
+  method: (event: any)=>void;
 }
 
 class DropDown extends React.Component<IProps, IState> {
@@ -37,13 +39,15 @@ class DropDown extends React.Component<IProps, IState> {
         <StyledListLabel
           onClick={this.state.visible ? this.hideList : this.showList}
         >
-          xxxx
+          {this.props.currentSelection}
         </StyledListLabel>
         {this.state.visible && (
           <StyledDropdownListContainer onClick={this.hideList}>
             <StyledList>
               {this.props.items.map(item => (
-                <StyledItem key={item}>{item}</StyledItem>
+                <div key={item} onClick={() => this.props.method(item)}>
+                  {item}
+                </div>
               ))}
             </StyledList>
           </StyledDropdownListContainer>
